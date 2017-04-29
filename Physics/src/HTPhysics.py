@@ -5,8 +5,8 @@
 # HTPhysics is an implementation of Physics
 # based on two books from Halliday and Tipler
 #
-# v1.013
-# Issue #7
+# v1.014
+# Issue #8
 #
 # Rodrigo Nobrega
 # 20170420-20170429
@@ -35,6 +35,23 @@ class SIUnit(object):
             print('Unit {} ({}) is a base unit of SI.'.format(unit, self.baseUnit[unit]))
         else:
             print('Unit {} is NOT a base unit of SI.'.format(unit))
+
+
+class SIPrefix(object):
+    """Converts a given number and unit into a SI prefixed one."""
+    def __init__(self):
+        """Constructor"""
+        self.prefix = {24: ['Y', 'yotta', 1000000000000000000000000]
+        , 21: ['Z', 'zetta', 1000000000000000000000]
+        , 18: ['E', 'exa', 1000000000000000000]
+        , 15: ['P', 'peta', 1000000000000000]
+        , 12: ['T', 'tera', 1000000000000]
+        , 9: ['G', 'giga', 1000000000]
+        , 6: ['M', 'mega', 1000000]
+        , 3: ['k', 'kilo', 1000]}
+    
+    def reduce(self):
+        pass
 
 
 # main loop
