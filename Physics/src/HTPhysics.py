@@ -5,7 +5,7 @@
 # HTPhysics is an implementation of Physics
 # based on two books from Halliday and Tipler
 #
-# v1.015
+# v1.016
 # Issue #8
 #
 # Rodrigo Nobrega
@@ -45,40 +45,57 @@ class SIPrefix(object):
     """Converts a given number and unit into a SI prefixed one."""
     def __init__(self):
         """Constructor"""
-        self.prefix = {24: ['Y', 'yotta', 1000000000000000000000000]
-        , 21: ['Z', 'zetta', 1000000000000000000000]
-        , 18: ['E', 'exa', 1000000000000000000]
-        , 15: ['P', 'peta', 1000000000000000]
-        , 12: ['T', 'tera', 1000000000000]
-        , 9: ['G', 'giga', 1000000000]
-        , 6: ['M', 'mega', 1000000]
-        , 3: ['k', 'kilo', 1000]}
+        self.prefix = {24: ['Y', 'yotta', 'y', 'yocto']
+        , 21: ['Z', 'zetta', 'z', 'zepto']
+        , 18: ['E', 'exa', 'a', 'atto']
+        , 15: ['P', 'peta', 'f', 'femto']
+        , 12: ['T', 'tera', 'p', 'pico']
+        , 9: ['G', 'giga', 'n', 'nano']
+        , 6: ['M', 'mega', 'μ', 'micro']
+        , 3: ['k', 'kilo', 'm', 'milli']}
+        print('================================================')
+        print('SIPrefix: A set of SI prefixes was created.')
+        print('================================================')
     
     def reduce(self, number):
         """Calculates the prefixed unit
-        arg: number<space>unit
-        i.e.: 250000 m"""
+        Argument: number<space>unit      i.e.: 250000 m
+        Returns: tuple with (number, unit, new number, new unit)"""
         # takes argument ('2500 m') and splits it as value and unit
         try:
-            value = int(number.split()[0])
+            value = number.split()[0]
             unit = number.split()[1]
         except:
             value = 0
             unit = 'N/A'
         # output for debug
-        print('number: {}\nvalue: {}\nunit: {}'.format(number, value, unit))
+        # print('number: {}\nvalue: {}\nunit: {}'.format(number, value, unit))
         # calculates number length l, remainder r and prefix factor p
-        l = len(str(value))
-        r = l % 3
-        p = l - r
+        if float(value) >= 1:
+            l = len(value)
+            r = l % 3
+            p = l - r
+            # output value
+            # rounded to 3 decimal places
+            valueout = round(float(value) / math.pow(10, p), 3)
+            # output unit
+            unitout = self.prefix[p][0] + unit
+        else:
+            l = len(value.split('.')[1])
+            r = l % 3
+            p = l - r
+            # output value
+            # rounded to 3 decimal places
+            valueout = round(float(value) * math.pow(10, p), 3)
+            # output unit
+            unitout = self.prefix[p][2] + unit
         # output for debug
-        print('length: {}\nremainder: {}\nprefix factor: {}'.format(l, r, p))
-        # output value
-        valueout = value / math.pow(10, p)
-        # output unit
-        unitout = self.prefix[p][0] + unit
+        # print('length: {}\nremainder: {}\nprefix factor: {}'.format(l, r, p))
         # output for debug
-        print('new value: {}\nnew unit: {}'.format(valueout, unitout))
+        # print('new value: {}\nnew unit: {}'.format(valueout, unitout))
+        # return tuple
+        # print((value, unit, valueout, unitout))
+        return (float(value), unit, valueout, unitout)
 
 
 # main loop
@@ -90,6 +107,12 @@ def main():
     testUnit = input('Enter an unit to test: ')
     theUnit.isSIunit(testUnit)
     theUnit.listUnit()
+    # creates an SI prefix instance
+    thePrefix = SIPrefix()
+    # converts a number and unit to a prefixed value
+    testNumber = input('Enter a large or small measure (number unit): ')
+    result = thePrefix.reduce(testNumber)
+    print('{} is equal to {} {}'.format(testNumber, result[2], result[3]))
 
 
 # main, calling main loop
