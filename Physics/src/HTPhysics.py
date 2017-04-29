@@ -5,7 +5,7 @@
 # HTPhysics is an implementation of Physics
 # based on two books from Halliday and Tipler
 #
-# v1.014
+# v1.015
 # Issue #8
 #
 # Rodrigo Nobrega
@@ -15,6 +15,10 @@ __author__ = 'Rodrigo Nobrega'
 
 
 # import modules
+import math
+
+
+# HTPhysics classes
 class SIUnit(object):
     """Defines all base units from the International System of Units."""
     def __init__(self):
@@ -50,8 +54,31 @@ class SIPrefix(object):
         , 6: ['M', 'mega', 1000000]
         , 3: ['k', 'kilo', 1000]}
     
-    def reduce(self):
-        pass
+    def reduce(self, number):
+        """Calculates the prefixed unit
+        arg: number<space>unit
+        i.e.: 250000 m"""
+        # takes argument ('2500 m') and splits it as value and unit
+        try:
+            value = int(number.split()[0])
+            unit = number.split()[1]
+        except:
+            value = 0
+            unit = 'N/A'
+        # output for debug
+        print('number: {}\nvalue: {}\nunit: {}'.format(number, value, unit))
+        # calculates number length l, remainder r and prefix factor p
+        l = len(str(value))
+        r = l % 3
+        p = l - r
+        # output for debug
+        print('length: {}\nremainder: {}\nprefix factor: {}'.format(l, r, p))
+        # output value
+        valueout = value / math.pow(10, p)
+        # output unit
+        unitout = self.prefix[p][0] + unit
+        # output for debug
+        print('new value: {}\nnew unit: {}'.format(valueout, unitout))
 
 
 # main loop
