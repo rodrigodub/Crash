@@ -17,7 +17,16 @@ from HTPhysics import *
 
 # main loop
 def main():
-    pass
+    Concept 1: test vectors with opposed angles
+    v1 = HTVector(m=10, theta=60)
+    v2 = HTVector(m=10, theta=120)
+    v1.report()
+    v2.report()
+    v3 = HTVector(m=10, theta=240)
+    v4 = HTVector(m=10, theta=300)
+    v3.report()
+    v4.report()
+    print(v1.vector(), v2.vector(), v3.vector(), v4.vector())
 
 
 # main, calling main loop

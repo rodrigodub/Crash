@@ -5,7 +5,7 @@
 # HTPhysics is an implementation of Physics
 # based on two books from Halliday and Tipler
 #
-# v1.020
+# v1.021
 # Issue #10
 #
 # Rodrigo Nobrega
@@ -103,7 +103,7 @@ class HTVector(object):
     """
     Class to define a numpy vector. There are two ways to create a vector:
     either giving a size and orientation (magnitude m, trigonometric angle theta (in degrees)) 
-    OR giving its x, y, z (...) dimensions.
+    OR giving its x, y, z (future) dimensions.
     --
     Usage: 
     v = HTVector(m=5, theta=60)
@@ -113,17 +113,18 @@ class HTVector(object):
         if (m and theta):
             self.m = m
             self.theta = theta
-            print("Magnitude: {}\nAngle: {}".format(self.m, self.theta))
             self.calculateFromSizeAngle()
-            print("X: {}\nY: {}".format(self.x, self.y))
         elif (x and y):
             self.x = x
             self.y = y
-            print("X: {}\nY: {}".format(self.x, self.y))
             self.calculateFromXY()
-            print("Magnitude: {}\nAngle: {}".format(self.m, self.theta))
         else:
             print("Vector not defined.")
+
+    def report(self):
+        print('-------------Vector-----------------')
+        print('Magnitude: {}\nAngle: {}'.format(self.m, self.theta))
+        print('X: {}\nY: {}'.format(self.x, self.y))
 
     def calculateFromSizeAngle(self):
         # Calculates X and Y components when given magnitude and angle.
