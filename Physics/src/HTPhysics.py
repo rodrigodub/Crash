@@ -5,7 +5,7 @@
 # HTPhysics is an implementation of Physics
 # based on two books from Halliday and Tipler
 #
-# v1.021
+# v1.022
 # Issue #10
 #
 # Rodrigo Nobrega
