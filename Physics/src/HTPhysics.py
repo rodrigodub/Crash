@@ -5,17 +5,18 @@
 # HTPhysics is an implementation of Physics
 # based on two books from Halliday and Tipler
 #
-# v1.016
-# Issue #8
+# v1.020
+# Issue #10
 #
 # Rodrigo Nobrega
-# 20170420-20170429
+# 20170420-20170510
 #################################################
 __author__ = 'Rodrigo Nobrega'
 
 
 # import modules
 import math
+import numpy as np
 
 
 # HTPhysics classes
@@ -98,21 +99,49 @@ class SIPrefix(object):
         return (float(value), unit, valueout, unitout)
 
 
+class HTVector(object):
+    """
+    Class to define a numpy vector. There are two ways to create a vector:
+    either giving a size and orientation (magnitude m, trigonometric angle theta (in degrees)) 
+    OR giving its x, y, z (...) dimensions.
+    --
+    Usage: 
+    v = HTVector(m=5, theta=60)
+    w = HTVector(x=6, y=9)
+    """
+    def __init__(self, m=None, theta=None, x=None, y=None, z=None):
+        if (m and theta):
+            self.m = m
+            self.theta = theta
+            print("Magnitude: {}\nAngle: {}".format(self.m, self.theta))
+            self.calculateFromSizeAngle()
+            print("X: {}\nY: {}".format(self.x, self.y))
+        elif (x and y):
+            self.x = x
+            self.y = y
+            print("X: {}\nY: {}".format(self.x, self.y))
+            self.calculateFromXY()
+            print("Magnitude: {}\nAngle: {}".format(self.m, self.theta))
+        else:
+            print("Vector not defined.")
+
+    def calculateFromSizeAngle(self):
+        # Calculates X and Y components when given magnitude and angle.
+        self.x = round(self.m * math.cos(math.radians(self.theta)), 3)
+        self.y = round(self.m * math.sin(math.radians(self.theta)), 3)
+
+    def calculateFromXY(self):
+        # Calculates magnitude and angle when given X and Y components.
+        self.m = round(math.sqrt(self.x ** 2 + self.y ** 2), 3)
+        self.theta = round(math.degrees(math.atan((self.y / self.x))), 3)
+
+    def vector(self):
+        # Returns the numpy vector
+        return np.array([self.x, self.y])
+
 # main loop
 def main():
-    # create an SI unit instance, with all seven SI units
-    theUnit = SIUnit()
-    # print(theUnit.baseUnit)
-    # tests if a given unit is an SI unit
-    testUnit = input('Enter an unit to test: ')
-    theUnit.isSIunit(testUnit)
-    theUnit.listUnit()
-    # creates an SI prefix instance
-    thePrefix = SIPrefix()
-    # converts a number and unit to a prefixed value
-    testNumber = input('Enter a large or small measure (number unit): ')
-    result = thePrefix.reduce(testNumber)
-    print('{} is equal to {} {}'.format(testNumber, result[2], result[3]))
+    pass
 
 
 # main, calling main loop
