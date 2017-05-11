@@ -5,11 +5,11 @@
 # HTPhysics is an implementation of Physics
 # based on two books from Halliday and Tipler
 #
-# v1.022
+# v1.023
 # Issue #10
 #
 # Rodrigo Nobrega
-# 20170420-20170510
+# 20170420-20170511
 #################################################
 __author__ = 'Rodrigo Nobrega'
 
@@ -104,7 +104,7 @@ class HTVector(object):
     Class to define a numpy vector. There are two ways to create a vector:
     either giving a size and orientation (magnitude m, trigonometric angle theta (in degrees)) 
     OR giving its x, y, z (future) dimensions.
-    --
+    -
     Usage: 
     v = HTVector(m=5, theta=60)
     w = HTVector(x=6, y=9)
@@ -139,6 +139,7 @@ class HTVector(object):
     def vector(self):
         # Returns the numpy vector
         return np.array([self.x, self.y])
+
 
 # main loop
 def main():
