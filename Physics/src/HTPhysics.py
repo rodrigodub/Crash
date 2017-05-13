@@ -5,11 +5,11 @@
 # HTPhysics is an implementation of Physics
 # based on two books from Halliday and Tipler
 #
-# v1.023
+# v1.025
 # Issue #10
 #
 # Rodrigo Nobrega
-# 20170420-20170512
+# 20170420-20170513
 #################################################
 __author__ = 'Rodrigo Nobrega'
 
@@ -110,11 +110,11 @@ class HTVector(object):
     w = HTVector(x=6, y=9)
     """
     def __init__(self, m=None, theta=None, x=None, y=None, z=None):
-        if (m and theta):
+        if (m != None and theta != None):
             self.m = m
             self.theta = theta
             self.calculateFromSizeAngle()
-        elif (x and y):
+        elif (x != None and y != None):
             self.x = x
             self.y = y
             self.calculateFromXY()

@@ -1,18 +1,19 @@
 #! /usr/bin/python3
 
 #################################################
-#                Exercises 01
-# SI: International System of Units
+#                Exercises 02
+# Vectors
 # based on two books from Halliday and Tipler
 #
 # Rodrigo Nobrega
-# 20170420-20170512
+# 20170420-20170513
 #################################################
 __author__ = 'Rodrigo Nobrega'
 
 
 # import modules
-from HTPhysics import HTVector
+# from HTPhysics import HTVector
+from HTPhysics import *
 import math
 
 
@@ -75,8 +76,21 @@ def main():
     # vD = HTVector(x=40.2, y=-49.5)
     # vD.report()
     # 58
-    va = HTVector(m=25, theta=330)
-    vb = HTVector(m=42, theta=40)
+    vA = HTVector(m=25, theta=330)
+    vB = HTVector(m=42, theta=40)
+    vR = HTVector(m=35, theta=0)
+    print('---')
+    print('2A + C - B = v(m=35, theta=0)')
+    print('Vector A: {}   2*A: {}'.format(vA.vector(), 2*vA.vector()))
+    print('Vector B: {}'.format(vB.vector()))
+    print('Vector result: {}'.format(vR.vector()))
+    print('C = B + v(m=35, theta=0) - 2A')
+    # print('Vector B-2A: {}'.format(vB.vector() - (2 * vA.vector())))
+    C = vB.vector() + vR.vector() - (2 * vA.vector())
+    vC = HTVector(x=C[0], y=C[1])
+    print('Vector C: {}'.format(vC.vector()))
+    vC.report()
+    
 
 
 
