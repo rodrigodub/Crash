@@ -6,13 +6,13 @@
 # based on two books from Halliday and Tipler
 #
 # Rodrigo Nobrega
-# 20170420-20170510
+# 20170420-20170512
 #################################################
 __author__ = 'Rodrigo Nobrega'
 
 
 # import modules
-from HTPhysics import *
+from HTPhysics import HTVector
 import math
 
 
@@ -55,25 +55,28 @@ def main():
     # # 56
     # v12 = HTVector(x=250, y=-86.603)
     # v12.report()
-    # 57
-    vA = HTVector(x=3.4, y=4.7)
-    vB = HTVector(x=-7.7, y=3.2)
-    vC = HTVector(x=5.4, y=-9.1)
-    vA.report()
-    vB.report()
-    vC.report()
-    print('---')
-    print('Vector A: {}   2*A: {}'.format(vA.vector(), 2*vA.vector()))
-    print('Vector B: {}   4*B: {}'.format(vB.vector(), 4*vB.vector()))
-    print('Vector C: {}   3*C: {}'.format(vC.vector(), 3*vC.vector()))
-    print('---')
-    print('D + 2A - 3C + 4B = 0')
-    print('D = - 2A + 3C - 4B')
-    D = - (2 * vA.vector()) + (3 * vC.vector()) - (4 * vB.vector())
-    print('D = {}'.format(D))
-    print('---')
-    vD = HTVector(x=40.2, y=-49.5)
-    vD.report()
+    # # 57
+    # vA = HTVector(x=3.4, y=4.7)
+    # vB = HTVector(x=-7.7, y=3.2)
+    # vC = HTVector(x=5.4, y=-9.1)
+    # vA.report()
+    # vB.report()
+    # vC.report()
+    # print('---')
+    # print('Vector A: {}   2*A: {}'.format(vA.vector(), 2*vA.vector()))
+    # print('Vector B: {}   4*B: {}'.format(vB.vector(), 4*vB.vector()))
+    # print('Vector C: {}   3*C: {}'.format(vC.vector(), 3*vC.vector()))
+    # print('---')
+    # print('D + 2A - 3C + 4B = 0')
+    # print('D = - 2A + 3C - 4B')
+    # D = - (2 * vA.vector()) + (3 * vC.vector()) - (4 * vB.vector())
+    # print('D = {}'.format(D))
+    # print('---')
+    # vD = HTVector(x=40.2, y=-49.5)
+    # vD.report()
+    # 58
+    va = HTVector(m=25, theta=330)
+    vb = HTVector(m=42, theta=40)
 
 
 
