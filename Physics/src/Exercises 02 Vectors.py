@@ -6,7 +6,7 @@
 # based on two books from Halliday and Tipler
 #
 # Rodrigo Nobrega
-# 20170420-20170513
+# 20170420-20170514
 #################################################
 __author__ = 'Rodrigo Nobrega'
 
@@ -92,9 +92,15 @@ def main():
     # vC.report()
     #
     # HALLIDAY p.56 (pdf 70), answers p.334 (pdf 349)
-    # H3
-    vA = HTVector(x=-25, y=40)
-    vA.report()
+    # # H3
+    # vA = HTVector(x=-25, y=40)
+    # vA.report()
+    # H4
+    print('---')
+    print('2 * pi = 360d')
+    print('1d = (2 * pi) /360')
+
+
     
 
 
