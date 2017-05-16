@@ -1,7 +1,7 @@
 #############################
 # Crash
 #
-# v.1.033
+# v.1.034
 # Issue #13
 # Rodrigo Nobrega
 # 20170420-20170516
@@ -33,7 +33,7 @@ SECRET_KEY = '(=yh1az04sat@l8l8&xyg%&pz$!2v+lgs3an_httg!j!uqs9w9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'Coltrane', 'HZTGZF2']
 
 
 # Application definition
