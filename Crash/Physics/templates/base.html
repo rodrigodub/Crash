@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Acme|Montserrat|Slabo+27px" rel="stylesheet">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'Physics/style.css' %}" type="text/css">
+        
+        {% block head %}
+            <title>Crash</title>
+        {% endblock %}
+
+    </head>
+
+
+    <body data-feedly-mini="yes">
+
+        {% block body %}
+        {% endblock %}
+
+        <div class="page-header">
+            <h1>Info</h1>
+        </div>
+        <div class="well">
+            <p>v.1.039 © Rodrigo Nobrega - May 2017</p>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{% static 'Physics/jquery.min.js.download' %}"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="{% static 'Physics/bootstrap.min.js.download' %}"></script>
+        <script src="{% static 'Physics/docs.min.js.download' %}"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="{% static 'Physics/ie10-viewport-bug-workaround.js.download' %}"></script>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="1140" height="500" viewBox="0 0 1140 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="57" style="font-weight:bold;font-size:57pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thirdslide</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div>
+    
+    </body>
+</html>
