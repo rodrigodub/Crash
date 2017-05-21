@@ -1,0 +1,23 @@
+# RUN THE SERVER
+python manage.py runserver
+python3 manage.py runserver
+
+# MAKE MIGRATIONS AFTER INCLUDING Physics APP
+python manage.py makemigrations Physics
+python3 manage.py makemigrations Physics
+
+# LOOK AT THE SQL CODE FOR INITIAL MIGRATION
+python manage.py sqlmigrate Physics 0001
+python manage.py sqlmigrate Physics 0002
+python3 manage.py sqlmigrate Physics 0001
+python3 manage.py sqlmigrate Physics 0002
+
+# FINALLY DO THE MIGRATION
+python manage.py migrate Physics
+python3 manage.py migrate Physics
+
+# PLAYING WITH THE API
+python3 manage.py shell
+
+# EXPLORING THE API
+from Physics.models import HTVector
