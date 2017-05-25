@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from .models import HTVector
+from .forms import VectorForm
 
 # Create your views here.
 def home(request):
@@ -10,6 +11,23 @@ def home(request):
 def vector_list(request):
     # vlist = HTVector.objects.all()
     vlist = HTVector.objects.order_by('-id')
-    context = {'vector_list': vlist}
+
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        vform = VectorForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # RODRIGO: DO SOMETHING AND TEST
+            # redirect to a new URL:
+            return HttpResponse('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        vform = VectorForm()
+
+    context = {'vector_list': vlist, 'vector_form': vform}
+
     return render(request, 'Physics/vectors.html', context)
 
