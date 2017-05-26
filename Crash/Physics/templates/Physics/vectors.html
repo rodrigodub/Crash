@@ -26,22 +26,10 @@
         <h1>New Vector</h1>
       </div>
       
-      <form class="form-inline">
+      <form  method="POST" class="form-inline">
         <table class="table-condensed">
-          <tr>
-            <td><label for="vectorInputName">Vector name</label></td>
-            <td><label for="vectorMagnitude">Magnitude</label></td>
-            <td><label for="vectorAngle">Angle</label></td>
-            <td><label for="vectorX">Component x</label></td>
-            <td><label for="vectorY">Component y</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="form-control" id="vectorInputName" placeholder="Vn"></td>
-            <td><input type="number" step="0.001" class="form-control" id="vectorMagnitude" placeholder="m"></td>
-            <td><input type="number" step="0.001" class="form-control" id="vectorAngle" placeholder="theta"></td>
-            <td><input type="number" step="0.001" class="form-control" id="vectorX" placeholder="x"></td>
-            <td><input type="number" step="0.001" class="form-control" id="vectorY" placeholder="y"></td>
-          </tr>
+          {% csrf_token %}
+          {{ vector_form }}
           <tr>
             <td><button type="submit" class="btn btn-default">Calculate and Store</button></td>
           </tr>
