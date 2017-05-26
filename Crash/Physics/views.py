@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import HTVector
 from .forms import VectorForm
 
@@ -17,11 +17,14 @@ def vector_list(request):
         # create a form instance and populate it with data from the request:
         vform = VectorForm(request.POST)
         # check whether it's valid:
-        if form.is_valid():
+        if vform.is_valid():
             # process the data in form.cleaned_data as required
             # RODRIGO: DO SOMETHING AND TEST
+            a = HTVector(name=vform.fields['vectorInputName'], m=vform.fields['vectorMagnitude'], theta=vform.fields['vectorAngle'], x=vform.fields['vectorX'], y=vform.fields['vectorY'])
+            a.calculate()
+            a.save()
             # redirect to a new URL:
-            return HttpResponse('/thanks/')
+            return render(request, 'Physics/home.html')
 
     # if a GET (or any other method) we'll create a blank form
     else:

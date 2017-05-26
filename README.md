@@ -9,4 +9,8 @@ This is still just [CrashCourse Computer Science](https://www.youtube.com/playli
 
 ### Links
 [Max Goodridge Django Tutorials](https://www.youtube.com/playlist?list=PLw02n0FEB3E3VSHjyYMcFadtQORvl1Ssj)
+
 [Django Girls Tutorial](https://tutorial.djangogirls.org/en/)
+
+[Mozilla Django Tutorial](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django) 
+
