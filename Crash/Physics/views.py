@@ -20,9 +20,8 @@ def vector_list(request):
         if vform.is_valid():
             # process the data in form.cleaned_data as required
             # RODRIGO: DO SOMETHING AND TEST
-            a = HTVector(name=vform.fields['vectorInputName'], m=vform.fields['vectorMagnitude'], theta=vform.fields['vectorAngle'], x=vform.fields['vectorX'], y=vform.fields['vectorY'])
-            a.calculate()
-            a.save()
+            #a = HTVector(name=vform.fields['vectorInputName'], m=vform.fields['vectorMagnitude'], theta=vform.fields['vectorAngle'], x=vform.fields['vectorX'], y=vform.fields['vectorY'])
+            vform.save(commit=True)
             # redirect to a new URL:
             return render(request, 'Physics/home.html')
 
