@@ -27,7 +27,17 @@
       <form  method="POST" class="form-inline">
         <table class="table-condensed">
           {% csrf_token %}
-          {{ vector_form }}
+          {{ vector_formMT }}
+          <tr>
+            <td><button type="submit" class="btn btn-default">Calculate and Store</button></td>
+          </tr>
+        </table>      
+      </form>
+
+      <form  method="POST" class="form-inline">
+        <table class="table-condensed">
+          {% csrf_token %}
+          {{ vector_formXY }}
           <tr>
             <td><button type="submit" class="btn btn-default">Calculate and Store</button></td>
           </tr>
