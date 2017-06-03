@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import HTVector
-from .forms import VectorForm
+from .forms import VectorFormMTheta, VectorFormXY
 
 # Create your views here.
 def home(request):
@@ -15,19 +15,34 @@ def vector_list(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        vform = VectorForm(request.POST)
+        vformMT = VectorFormMTheta(request.POST)
+        vformXY = VectorFormXY(request.POST)
         # check whether it's valid:
-        if form.is_valid():
+        if vformMT.is_valid():
             # process the data in form.cleaned_data as required
-            # RODRIGO: DO SOMETHING AND TEST
+            vformMT.save(commit=True)
+            # take the last vector and recalculate
+            a = HTVector.objects.all()[len(HTVector.objects.all())-1]
+            a.calculate()
+            a.save()
             # redirect to a new URL:
-            return HttpResponse('/thanks/')
+            return render(request, 'Physics/home.html')
+        elif vformXY.is_valid():
+            # process the data in form.cleaned_data as required
+            vformXY.save(commit=True)
+            # take the last vector and recalculate
+            a = HTVector.objects.all()[len(HTVector.objects.all())-1]
+            a.calculate()
+            a.save()
+            # redirect to a new URL:
+            return render(request, 'Physics/home.html')
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        vform = VectorForm()
+        vformMT = VectorFormMTheta()
+        vformXY = VectorFormXY()
 
-    context = {'vector_list': vlist, 'vector_form': vform}
+    context = {'vector_list': vlist, 'vector_formMT': vformMT, 'vector_formXY': vformXY}
 
     return render(request, 'Physics/vectors.html', context)
 
