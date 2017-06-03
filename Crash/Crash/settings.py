@@ -1,10 +1,10 @@
 #############################
 # Crash
 #
-# v.1.051
+# v.1.052
 # Issue #16
 # Rodrigo Nobrega 
-# 20170420-20170527
+# 20170420-20170603
 #############################
 """
 Django settings for Crash project.
@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ['localhost', 'Coltrane', 'HZTGZF2']
 
 INSTALLED_APPS = [
     'Physics',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

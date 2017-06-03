@@ -1,6 +1,7 @@
 from django import forms
 from .models import HTVector
 
+# class VectorForm(forms.Form):
 class VectorForm(forms.ModelForm):
     # name = forms.CharField(label="Vector name", max_length=30, required=False)
     # m = forms.FloatField(label="Magnitude", required=False)
@@ -11,3 +12,4 @@ class VectorForm(forms.ModelForm):
     class Meta:
         model = HTVector
         fields = ('name', 'm', 'theta', 'x', 'y',)
+        # fields = ('name', 'm', 'theta', )
