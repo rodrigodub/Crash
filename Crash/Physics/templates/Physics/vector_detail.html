@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+
+  <head>
+    {% block head%}
+      <title>Individual vector</title>
+    {% endblock%}
+  </head>
+
+  <body>
+    
+
+      <!-- Main block to replace base.html -->
+      {% block body%}
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>A specific vector</h1>
+        <p>This is a specific vector page. Look at this chart.</p>
+      </div>
+
+
+      <!-- Vector detail -->
+      <div class="page-header">
+        <h1>Vector Details</h1>
+      </div>
+      <div class="row">
+        <table class="table table-hover">
+        <tr>
+          <td><strong>ID</strong></td>
+          <td><strong>Vector name</strong></td>
+          <td><strong>Magnitude m</strong></td>
+          <td><strong>Angle theta</strong></td>
+          <td><strong>Component x</strong></td>
+          <td><strong>Component y</strong></td>
+        </tr>
+
+        <tr>
+          <td>{{ vector.id }}</td>
+          <td>{{ vector.name }}</td>
+          <td>{{ vector.m }}</td>
+          <td>{{ vector.theta }}</td>
+          <td>{{ vector.x }}</td>
+          <td>{{ vector.y }}</td>
+        </tr>
+
+        </table>
+      </div>
+      
+      {% endblock%}
+
+ </body>
+

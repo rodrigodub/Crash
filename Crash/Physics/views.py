@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from .models import HTVector
 from .forms import VectorFormMTheta, VectorFormXY
 
@@ -6,6 +6,7 @@ from .forms import VectorFormMTheta, VectorFormXY
 def home(request):
     # return HttpResponse('Physics Home Page')
     return render(request, 'Physics/home.html')
+
 
 # vector list
 def vector_list(request):
@@ -46,3 +47,8 @@ def vector_list(request):
 
     return render(request, 'Physics/vectors.html', context)
 
+
+# individual vector
+def vector_num(request, id):
+    vector = get_object_or_404(HTVector, pk=id)
+    return render(request, 'Physics/vector_detail.html', {'vector': vector})

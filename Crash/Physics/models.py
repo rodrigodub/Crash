@@ -3,6 +3,7 @@ from django.db import models
 # import modules
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Create your models here.
 
@@ -29,10 +30,15 @@ class HTVector(models.Model):
         self.theta = round(math.degrees(math.atan((self.y / self.x))), 3)
 
     def calculate(self):
+        # depending which pair of attributes exist,
+        # it calculates the other two
         if (self.m != None and self.theta != None):
             self.calculateFromSizeAngle()
         elif (self.x != None and self.y != None):
             self.calculateFromXY()
         else:
             pass
-            
+    
+    def drawVector(self):
+        # calculates the chart parameters and draws the vector
+        pass
