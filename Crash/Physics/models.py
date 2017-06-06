@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import HttpResponse
 
 # import modules
 import math
@@ -41,4 +42,25 @@ class HTVector(models.Model):
     
     def drawVector(self):
         # calculates the chart parameters and draws the vector
-        pass
+        # chart extents (limits):
+        if (self.x > 0 and self.y > 0):
+            limits = [(-1.1 * self.x), (1.1 * self.x), (-1.1 * self.y), (1.1 * self.y)]
+        elif (self.x < 0 and self.y > 0):
+            limits = [(1.1 * self.x), (-1.1 * self.x), (-1.1 * self.y), (1.1 * self.y)]
+        elif (self.x < 0 and self.y < 0):
+            limits = [(1.1 * self.x), (-1.1 * self.x), (1.1 * self.y), (-1.1 * self.y)]
+        elif (self.x > 0 and self.y < 0):
+            limits = [(-1.1 * self.x), (1.1 * self.x), (1.1 * self.y), (-1.1 * self.y)]
+        # draw chart
+        plt.quiver(0, 0, self.x, self.y, angles='xy', scale_units='xy', scale=1, color='b')
+        plt.axis(limits)
+        plt.axhline(y=0, color='k')
+        plt.axvline(x=0, color='k')
+        plt.grid(True, linestyle='dashed')
+        plt.title(r'Vector {}: m={} | $\theta$={} | x={} | y={}'.format(self.name, self.m, self.theta, self.x, self.y))
+        # output picture
+        # plt.show()
+        response = HttpResponse(mimetype="image/png")
+        pylab.savefig(response, format="png")
+        return response
+
