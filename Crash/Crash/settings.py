@@ -1,10 +1,10 @@
 #############################
 # Crash
 #
-# v.1.057
+# v.1.058
 # Issue #21
-# Rodrigo Nobrega 
-# 20170420-20170605
+# Rodrigo Nobrega
+# 20170420-20170606
 #############################
 """
 Django settings for Crash project.

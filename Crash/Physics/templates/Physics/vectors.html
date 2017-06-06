@@ -70,12 +70,14 @@
         </tr>
         {% for vector in vector_list %}
         <tr>
-          <td>{{ vector.id }}</td>
+          
+          <td><a href="{% url 'vector_num' vector.id %}">{{ vector.id }}</a></td>
           <td>{{ vector.name }}</td>
           <td>{{ vector.m }}</td>
           <td>{{ vector.theta }}</td>
           <td>{{ vector.x }}</td>
           <td>{{ vector.y }}</td>
+          
         </tr>
         {% endfor %}
         </table>
