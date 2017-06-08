@@ -51,4 +51,5 @@ def vector_list(request):
 # individual vector
 def vector_num(request, id):
     vector = get_object_or_404(HTVector, pk=id)
+    picture = vector.drawVector()
     return render(request, 'Physics/vector_detail.html', {'vector': vector})
