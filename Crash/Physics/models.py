@@ -5,6 +5,7 @@ from django.shortcuts import HttpResponse
 import math
 import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Create your models here.
 
@@ -64,4 +65,8 @@ class HTVector(models.Model):
         plt.savefig('Physics/static/Physics/vector.png')
         plt.clf()
         # return response
+
+    def vector(self):
+        # return a numpy array
+        return np.array([self.x, self.y])
 
