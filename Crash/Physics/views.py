@@ -27,7 +27,7 @@ def vector_list(request):
             a.calculate()
             a.save()
             # redirect to a new URL:
-            return render(request, 'Physics/vectors.html')
+            return render(request, 'Physics/vectors.html', {'vector_list': vlist, 'vector_formMT': VectorFormMTheta(), 'vector_formXY': VectorFormXY()})
         elif vformXY.is_valid():
             # process the data in form.cleaned_data as required
             vformXY.save(commit=True)
@@ -36,7 +36,7 @@ def vector_list(request):
             a.calculate()
             a.save()
             # redirect to a new URL:
-            return render(request, 'Physics/vectors.html')
+            return render(request, 'Physics/vectors.html', {'vector_list': vlist, 'vector_formMT': VectorFormMTheta(), 'vector_formXY': VectorFormXY()})
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -53,3 +53,8 @@ def vector_num(request, id):
     vector = get_object_or_404(HTVector, pk=id)
     picture = vector.drawVector()
     return render(request, 'Physics/vector_detail.html', {'vector': vector})
+
+
+# exercises list
+def exercise_list(request):
+    return render(request, 'Physics/exercise.html')
