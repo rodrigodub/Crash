@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+
+  <head>
+    {% block head%}
+      <title>Exercise Detail</title>
+    {% endblock%}
+  </head>
+
+  <body>
+    
+
+      <!-- Main block to replace base.html -->
+      {% block body%}
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Exercise {{ exercise.exercise }} <small>Book {{ exercise.book }} / Volume {{ exercise.volume }} / Chapter {{ exercise.chapter }} / Page {{ exercise.page }}</small></h1>
+        <p>Details of Exercise {{ exercise.exercise }}</p>
+      </div>
+
+
+
+      <!-- Create new Exercise -->
+      <div class="page-header">
+        <h1>Add Data</h1>
+      </div>
+      
+      <div class="row">
+      <!-- Form with Data -->
+      <div class="col-md-6">
+      <p>Enter this Exercise's data components</p>
+      <form  method="POST" class="form-inline">
+        <table class="table-condensed">
+          {% csrf_token %}
+          {{ dataform }}
+          <tr>
+            <td><button type="submit" class="btn btn-default">Add</button></td>
+          </tr>
+        </table>    
+      </form>
+      </div>
+      </div>
+
+      <!-- List of Data -->
+      <div class="page-header">
+        <h1>Exercise Details</h1>
+      </div>
+      <div class="row">
+        <table class="table table-hover">
+        <tr>
+
+          <td><strong>Variable</strong></td>
+          <td><strong>Value</strong></td>
+          <td><strong>Unit</strong></td>
+        </tr>
+        {% for data in datalist %}
+        <tr>
+
+          <td>{{ data.variable }}</td>
+          <td>{{ data.value }}</td>
+          <td>{{ data.unit }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+      </div>
+      
+      {% endblock%}
+
+ </body>
+

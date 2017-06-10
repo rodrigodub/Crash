@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from .models import HTVector, HTExercise, HTData
-from .forms import VectorFormMTheta, VectorFormXY, ExerciseForm
+from .forms import VectorFormMTheta, VectorFormXY, ExerciseForm, ExerciseDataForm
 
 # Create your views here.
 def home(request):
@@ -78,6 +78,18 @@ def exercise_list(request):
 # individual exercise
 def exercise_num(request, id):
     exercise = get_object_or_404(HTExercise, pk=id)
-    #datalist = HTData
-
-    return render(request, 'Physics/exercise.html')
+    datalist = HTData.objects.filter(container_id=id)
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        dataform = ExerciseDataForm(request.POST)
+        # check whether it's valid:
+        if dataform.is_valid():
+            # process the data in form.cleaned_data as required
+            dataform.save(commit=True)
+            # redirect to a new URL:
+            return render(request, 'Physics/exercise_details.html', {'exercise': exercise, 'datalist': datalist, 'dataform': ExerciseDataForm()})
+    # if this is a GET (or any other method) we'll create a blank form
+    else:
+        dataform = ExerciseDataForm()
+    return render(request, 'Physics/exercise_details.html', {'exercise': exercise, 'datalist': datalist, 'dataform': dataform})
