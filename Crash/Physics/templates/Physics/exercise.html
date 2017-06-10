@@ -3,7 +3,7 @@
 
   <head>
     {% block head%}
-      <title>Vectors</title>
+      <title>Exercises</title>
     {% endblock%}
   </head>
 
@@ -15,69 +15,53 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Exercise</h1>
-        <p>The vectors page. Mind the arrows.</p>
+        <h1>Exercises</h1>
+        <p>Exercises of Physics books: Tipler & Mosca, and Halliday & Resnick</p>
       </div>
 
-      <!-- Create new vector -->
+      <!-- Create new Exercise -->
       <div class="page-header">
-        <h1>New Vector</h1>
+        <h1>New Exercise</h1>
       </div>
       
       <div class="row">
-      <!-- Form with Magnitude and Angle -->
+      <!-- Form with Exercise -->
       <div class="col-md-6">
-      <p>Using Magnitude (m) and angle (theta)</p>
+      <p>Enter the Exercise details</p>
       <form  method="POST" class="form-inline">
         <table class="table-condensed">
           {% csrf_token %}
-          {{ vector_formMT }}
+          {{ exercise_form }}
           <tr>
             <td><button type="submit" class="btn btn-default">Create</button></td>
           </tr>
         </table>    
       </form>
       </div>
-
-      <!-- Form with X and Y components -->
-      <div class="col-md-6">
-      <p>Using horizontal and vertical (x and y) components</p>
-      <form  method="POST" class="form-inline">
-        <table class="table-condensed">
-          {% csrf_token %}
-          {{ vector_formXY }}
-          <tr>
-            <td><button type="submit" class="btn btn-default">Create</button></td>
-          </tr>
-        </table>      
-      </form>
-      </div>
       </div>
 
-      <!-- List of vectors -->
+      <!-- List of Exercises -->
       <div class="page-header">
-        <h1>Vectors List</h1>
+        <h1>Exercises List</h1>
       </div>
       <div class="row">
         <table class="table table-hover">
         <tr>
           <td><strong>ID</strong></td>
-          <td><strong>Vector name</strong></td>
-          <td><strong>Magnitude m</strong></td>
-          <td><strong>Angle theta</strong></td>
-          <td><strong>Component x</strong></td>
-          <td><strong>Component y</strong></td>
+          <td><strong>Book</strong></td>
+          <td><strong>Volume</strong></td>
+          <td><strong>Chapter</strong></td>
+          <td><strong>Page</strong></td>
+          <td><strong>Exercise</strong></td>
         </tr>
-        {% for vector in vector_list %}
+        {% for exercise in exercise_list %}
         <tr>
-          
-          <td><a href="{% url 'vector_num' vector.id %}">{{ vector.id }}</a></td>
-          <td>{{ vector.name }}</td>
-          <td>{{ vector.m }}</td>
-          <td>{{ vector.theta }}</td>
-          <td>{{ vector.x }}</td>
-          <td>{{ vector.y }}</td>
-          
+          <td>{{ exercise.id }}</td>
+          <td>{{ exercise.book }}</td>
+          <td>{{ exercise.volume }}</td>
+          <td>{{ exercise.chapter }}</td>
+          <td>{{ exercise.page }}</td>
+          <td>{{ exercise.exercise }}</td>
         </tr>
         {% endfor %}
         </table>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import HTVector
+from .models import HTVector, HTExercise
 
 
 class VectorFormMTheta(forms.ModelForm):
@@ -12,3 +12,9 @@ class VectorFormXY(forms.ModelForm):
     class Meta:
         model = HTVector
         fields = ('name', 'x', 'y', )
+
+
+class ExerciseForm(forms.ModelForm):
+    class Meta:
+        model = HTExercise
+        fields = ('book', 'volume', 'chapter', 'page', 'exercise')

@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01c296ad-c4a6-4ffe-a3ff-3a61471cb599" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Physics/static/Physics/vector.png" afterPath="$PROJECT_DIR$/Crash/Physics/static/Physics/vector.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/db.sqlite3" afterPath="$PROJECT_DIR$/Crash/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Crash/settings.py" afterPath="$PROJECT_DIR$/Crash/Crash/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Physics/forms.py" afterPath="$PROJECT_DIR$/Crash/Physics/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Physics/models.py" afterPath="$PROJECT_DIR$/Crash/Physics/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Physics/templates/Physics/exercise.html" afterPath="$PROJECT_DIR$/Crash/Physics/templates/Physics/exercise.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Physics/templates/base.html" afterPath="$PROJECT_DIR$/Crash/Physics/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Physics/urls.py" afterPath="$PROJECT_DIR$/Crash/Physics/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Physics/views.py" afterPath="$PROJECT_DIR$/Crash/Physics/views.py" />
@@ -37,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="421">
-              <caret line="78" column="22" lean-forward="false" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
+              <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -46,8 +48,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crash/Physics/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="66" lean-forward="true" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -58,8 +60,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crash/Physics/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+            <state relative-caret-position="301">
+              <caret line="77" column="31" lean-forward="true" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -70,8 +72,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crash/Physics/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="496">
+              <caret line="69" column="118" lean-forward="false" selection-start-line="69" selection-start-column="118" selection-end-line="69" selection-end-column="118" />
               <folding>
                 <element signature="e#0#78#0" expanded="true" />
               </folding>
@@ -82,9 +84,21 @@
       <file leaf-file-name="exercise.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/Physics/exercise.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+            <state relative-caret-position="492">
+              <caret line="57" column="12" lean-forward="false" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Crash/Physics/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,12 +114,13 @@
         <option value="$PROJECT_DIR$/Physics/src/Exercises 01 SI.py" />
         <option value="$PROJECT_DIR$/Physics/src/Exercises 02 Vectors.py" />
         <option value="$PROJECT_DIR$/Physics/src/HTPhysics.py" />
-        <option value="$PROJECT_DIR$/Crash/Physics/templates/base.html" />
-        <option value="$PROJECT_DIR$/Crash/Crash/settings.py" />
+        <option value="$PROJECT_DIR$/Crash/Physics/forms.py" />
         <option value="$PROJECT_DIR$/Crash/Physics/models.py" />
         <option value="$PROJECT_DIR$/Crash/Physics/urls.py" />
-        <option value="$PROJECT_DIR$/Crash/Physics/views.py" />
         <option value="$PROJECT_DIR$/Crash/Physics/templates/Physics/exercise.html" />
+        <option value="$PROJECT_DIR$/Crash/Physics/views.py" />
+        <option value="$PROJECT_DIR$/Crash/Crash/settings.py" />
+        <option value="$PROJECT_DIR$/Crash/Physics/templates/base.html" />
       </list>
     </option>
   </component>
@@ -624,14 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="78" column="22" lean-forward="false" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common Django commands.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -640,10 +647,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/Physics/exercise.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="57" column="12" lean-forward="false" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crash/Physics/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crash/Physics/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="69" column="118" lean-forward="false" selection-start-line="69" selection-start-column="118" selection-end-line="69" selection-end-column="118" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Crash/Physics/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        <state relative-caret-position="301">
+          <caret line="77" column="31" lean-forward="true" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -652,28 +687,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crash/Physics/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="66" lean-forward="true" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crash/Physics/views.py">
+    <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/Physics/exercise.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        <state relative-caret-position="421">
+          <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
           <folding />
         </state>
       </provider>

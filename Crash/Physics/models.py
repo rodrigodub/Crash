@@ -86,7 +86,7 @@ class HTExercise(models.Model):
     # page
     page = models.IntegerField(default=None, blank=True)
     # exercise
-    exercise = models.CharField(max_length=5,default=None, blank=True)
+    exercise = models.CharField(max_length=5, default=None, blank=True)
 
 
 class HTData(models.Model):
