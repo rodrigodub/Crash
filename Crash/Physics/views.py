@@ -88,8 +88,8 @@ def exercise_num(request, id):
             # process the data in form.cleaned_data as required
             dataform.save(commit=True)
             # redirect to a new URL:
-            return render(request, 'Physics/exercise_details.html', {'exercise': exercise, 'datalist': datalist, 'dataform': ExerciseDataForm()})
+            return render(request, 'Physics/exercise_details.html', {'exercise': exercise, 'datalist': datalist, 'dataform': ExerciseDataForm(initial={'container': exercise})})
     # if this is a GET (or any other method) we'll create a blank form
     else:
-        dataform = ExerciseDataForm()
+        dataform = ExerciseDataForm(initial={'container': exercise})
     return render(request, 'Physics/exercise_details.html', {'exercise': exercise, 'datalist': datalist, 'dataform': dataform})

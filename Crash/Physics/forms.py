@@ -23,5 +23,7 @@ class ExerciseForm(forms.ModelForm):
 class ExerciseDataForm(forms.ModelForm):
     class Meta:
         model = HTData
-        fields = ('variable', 'value', 'unit')
+        fields = ('container', 'variable', 'value', 'unit')
+        labels = {'container': 'Exercise', }
+        widgets = {'container': forms.HiddenInput(attrs={'readonly':'readonly'})}
 

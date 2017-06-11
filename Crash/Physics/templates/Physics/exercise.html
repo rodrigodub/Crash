@@ -56,7 +56,7 @@
         </tr>
         {% for exercise in exercise_list %}
         <tr>
-          <td>{{ exercise.id }}</td>
+          <td><a href="{% url 'exercise_num' exercise.id %}">{{ exercise.id }}</a></td>
           <td>{{ exercise.book }}</td>
           <td>{{ exercise.volume }}</td>
           <td>{{ exercise.chapter }}</td>
