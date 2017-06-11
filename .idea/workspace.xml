@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01c296ad-c4a6-4ffe-a3ff-3a61471cb599" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Computer/urls.py" afterPath="$PROJECT_DIR$/Crash/Computer/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Computer/views.py" afterPath="$PROJECT_DIR$/Crash/Computer/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/db.sqlite3" afterPath="$PROJECT_DIR$/Crash/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Crash/settings.py" afterPath="$PROJECT_DIR$/Crash/Crash/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crash/Physics/templates/base.html" afterPath="$PROJECT_DIR$/Crash/Physics/templates/base.html" />
     </list>
@@ -20,21 +19,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crash/Crash/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="11" />
+            <state relative-caret-position="75">
+              <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="85" column="58" lean-forward="true" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="58" />
+            <state relative-caret-position="466">
+              <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -134,11 +133,11 @@
         <option value="$PROJECT_DIR$/Crash/Crash/urls.py" />
         <option value="$PROJECT_DIR$/Crash/Computer/templates/Computer/computer_home.html" />
         <option value="$PROJECT_DIR$/Crash/Computer/models.py" />
-        <option value="$PROJECT_DIR$/Crash/Physics/templates/base.html" />
         <option value="$PROJECT_DIR$/Crash/Computer/forms.py" />
         <option value="$PROJECT_DIR$/Crash/Computer/urls.py" />
         <option value="$PROJECT_DIR$/Crash/Computer/views.py" />
         <option value="$PROJECT_DIR$/Crash/Crash/settings.py" />
+        <option value="$PROJECT_DIR$/Crash/Physics/templates/base.html" />
       </list>
     </option>
   </component>
@@ -690,18 +689,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/Crash/Crash/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="85" column="58" lean-forward="true" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="58" />
+        <state relative-caret-position="75">
+          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crash/Crash/settings.py">
+    <entry file="file://$PROJECT_DIR$/Crash/Physics/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="11" />
+        <state relative-caret-position="466">
+          <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
           <folding />
         </state>
       </provider>
