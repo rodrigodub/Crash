@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+  <head>
+    {% block head%}
+      <title>Computer Science Home Page</title>
+    {% endblock%}
+  </head>
+
+  <body>
+
+
+      <!-- Main block to replace base.html -->
+      {% block body%}
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Computer Science</h1>
+        <p>CrashCourse - Concepts of Computer Science implemented in Python. Based on PBS's <a href="https://www.youtube.com/user/crashcourse">CrashCourse</a>.</p>
+      </div>
+
+
+      <div class="page-header">
+        <h1>Topics</h1>
+      </div>
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Computer Science</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+            <div class="list-group">
+              <a href="#" class="list-group-item">Transistors</a>
+              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+              <a href="#" class="list-group-item">Morbi leo risus</a>
+              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+              <a href="#" class="list-group-item">Vestibulum at eros</a>
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+      
+      {% endblock%}
+
+ </body>
+

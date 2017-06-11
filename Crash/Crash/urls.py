@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^Crash/', include('Physics.urls')),
+    url(r'^Crash/computer/', include('Computer.urls')),
 ]

@@ -1,8 +1,8 @@
 #############################
 # Crash
 #
-# v.1.066
-# Issue #23
+# v.1.067
+# Issue #24
 # Rodrigo Nobrega
 # 20170420-20170611
 #############################
@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ['localhost', 'Coltrane', 'HZTGZF2']
 
 INSTALLED_APPS = [
     'Physics',
+    'Computer',
     'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
