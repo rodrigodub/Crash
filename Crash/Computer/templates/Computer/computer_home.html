@@ -1,50 +1,43 @@
 
 {% extends 'base.html' %}
 
-  <head>
+<head>
     {% block head%}
-      <title>Computer Science Home Page</title>
+        <title>Computer Science Home Page</title>
     {% endblock%}
-  </head>
+</head>
 
-  <body>
+<body>
+
+    <!-- Main block to replace base.html -->
+    {% block body%}
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <h1>Computer Science</h1>
+            <p>CrashCourse - Concepts of Computer Science implemented in Python. Based on PBS's <a href="https://www.youtube.com/user/crashcourse">CrashCourse</a>.</p>
+        </div>
 
 
-      <!-- Main block to replace base.html -->
-      {% block body%}
+        <div class="page-header">
+            <h1>Contents</h1>
+        </div>
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Computer Science</h1>
-        <p>CrashCourse - Concepts of Computer Science implemented in Python. Based on PBS's <a href="https://www.youtube.com/user/crashcourse">CrashCourse</a>.</p>
-      </div>
-
-
-      <div class="page-header">
-        <h1>Topics</h1>
-      </div>
-      <div class="row">
-
-        <div class="col-md-4">
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Computer Science</h3>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                {% load staticfiles %}
+                <img src="{% static 'Computer/transistor.gif' %}" alt="Source: BBC article">
+                    <div class="caption">
+                    <h3>Transistor</h3>
+                    <p>On <a href="https://www.youtube.com/watch?v=LN0ucKNX0hc&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=3">Crash Course</a>, on <a href="https://en.wikipedia.org/wiki/Transistor">Wikipedia</a> and on the <a href="http://www.bbc.co.uk/schools/gcsebitesize/design/electronics/switchesrev3.shtml">BBC</a>. </p>
+                    <p><a href="#" class="btn btn-primary" role="button">Play with them</a></p>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-              Panel content
-            </div>
-            <div class="list-group">
-              <a href="#" class="list-group-item">Transistors</a>
-              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item">Morbi leo risus</a>
-              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item">Vestibulum at eros</a>
-            </div>
-          </div>
-        </div><!-- /.col-sm-4 -->
-      </div>
-      
-      {% endblock%}
+        </div>
 
- </body>
+    {% endblock%}
+
+</body>
 
