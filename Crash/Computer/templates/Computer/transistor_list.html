@@ -1,0 +1,72 @@
+
+{% extends 'base.html' %}
+
+  <head>
+    {% block head%}
+      <title>Transistors</title>
+    {% endblock%}
+  </head>
+
+  <body>
+    
+
+      <!-- Main block to replace base.html -->
+      {% block body%}
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Transistors</h1>
+        <p>Like Relays, but not mechanical. Like Valve Tubes, but electronic.</p>
+      </div>
+
+      <!-- Create new vector -->
+      <div class="page-header">
+        <h1>New Transistor</h1>
+      </div>
+      
+      <div class="row">
+      <!-- Form with Magnitude and Angle -->
+      <div class="col-md-6">
+      <p>Using Magnitude (m) and angle (theta)</p>
+      <form  method="POST" class="form-inline">
+        <table class="table-condensed">
+          {% csrf_token %}
+          {{ transistor_form }}
+          <tr>
+            <td><button type="submit" class="btn btn-default">Create</button></td>
+          </tr>
+        </table>    
+      </form>
+      </div>
+
+      </div>
+
+      <!-- List of transistors -->
+      <div class="page-header">
+        <h1>Transistor list</h1>
+      </div>
+      <div class="row">
+        <table class="table table-hover">
+        <tr>
+          <td><strong>ID</strong></td>
+          <td><strong>Electrode IN (collector)</strong></td>
+          <td><strong>Electrode OUT (emitter)</strong></td>
+          <td><strong>Gate (Base)</strong></td>
+        </tr>
+        {% for transistor in transistors %}
+        <tr>
+          
+          <td><a href="#">{{ transistor.id }}</a></td>
+          <td>{{ transistor.electrode_in }}</td>
+          <td>{{ transistor.electrode_out }}</td>
+          <td>{{ transistor.gate }}</td>
+          
+        </tr>
+        {% endfor %}
+        </table>
+      </div>
+      
+      {% endblock%}
+
+ </body>
+

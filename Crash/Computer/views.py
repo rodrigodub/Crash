@@ -11,5 +11,18 @@ def transistor_list(request):
     transistors = CCTransistor.objects.order_by('-id')
     # POST
     if request.method == 'POST':
+        # post the contents of transForm form
         transForm = TransistorForm(request.POST)
-    # TO BE CONTINUED
+        if transForm.is_valid():
+            transForm.save(commit=True)
+            # redirect to a new URL:
+            return render(request, 'Computer/transistor_list.html'
+                          , {'transistors': transistors, 'transistor_form': TransistorForm()})
+    # GET
+    else:
+        transForm = TransistorForm()
+        return render(request, 'Computer/transistor_list.html'
+                      , {'transistors': transistors, 'transistor_form': TransistorForm()})
+
+
+
