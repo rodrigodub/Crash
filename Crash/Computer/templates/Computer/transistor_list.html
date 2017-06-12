@@ -26,8 +26,7 @@
       
       <div class="row">
       <!-- Form with Magnitude and Angle -->
-      <div class="col-md-6">
-      <p>Using Magnitude (m) and angle (theta)</p>
+      <div class="col-md-4">
       <form  method="POST" class="form-inline">
         <table class="table-condensed">
           {% csrf_token %}
@@ -38,6 +37,24 @@
         </table>    
       </form>
       </div>
+        <div class="col-xs-6 col-md-3">
+        <div class="thumbnail">
+        {% load staticfiles %}
+        <a href="http://www.bbc.co.uk/schools/gcsebitesize/design/electronics/switchesrev3.shtml"> <img src="{% static 'Computer/transistor.gif' %}" alt="Source: BBC article"></a>
+        </div>
+        </div>
+        <div class="col-xs-6 col-md-2">
+        <div class="thumbnail">
+
+        <a href="http://www.learningaboutelectronics.com/Articles/Difference-between-a-NPN-and-a-PNP-transistor"><img src="{% static 'Computer/NPN-transistor.png' %}" alt="Source: Learning About Electronics"></a>
+        </div>
+        </div>
+        <div class="col-xs-6 col-md-2">
+        <div class="thumbnail">
+
+        <a href="http://www.learningaboutelectronics.com/Articles/Difference-between-a-NPN-and-a-PNP-transistor"><img src="{% static 'Computer/PNP-transistor.png' %}" alt="Source: Learning About Electronics"></a>
+        </div>
+        </div>
 
       </div>
 
@@ -49,9 +66,9 @@
         <table class="table table-hover">
         <tr>
           <td><strong>ID</strong></td>
-          <td><strong>Electrode IN (collector)</strong></td>
-          <td><strong>Electrode OUT (emitter)</strong></td>
-          <td><strong>Gate (Base)</strong></td>
+          <td><strong>Electrode IN: Collector</strong></td>
+          <td><strong>Electrode OUT: Emitter</strong></td>
+          <td><strong>Gate: Base</strong></td>
         </tr>
         {% for transistor in transistors %}
         <tr>

@@ -15,6 +15,10 @@ def transistor_list(request):
         transForm = TransistorForm(request.POST)
         if transForm.is_valid():
             transForm.save(commit=True)
+            # take the just created transistor and update() it to do the electronics
+            lastTrans = CCTransistor.objects.all()[len(CCTransistor.objects.all())-1]
+            lastTrans.update()
+            lastTrans.save()
             # redirect to a new URL:
             return render(request, 'Computer/transistor_list.html'
                           , {'transistors': transistors, 'transistor_form': TransistorForm()})
