@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic.edit import UpdateView
+from django.urls import reverse
 from .models import CCTransistor
 from .forms import TransistorForm
 
@@ -29,4 +31,10 @@ def transistor_list(request):
                       , {'transistors': transistors, 'transistor_form': TransistorForm()})
 
 
+class transistor_update(UpdateView):
+    model = CCTransistor
+    fields = ['electrode_in', 'gate']
+
+    def get_success_url(self):
+        return reverse('transistor_list')
 
