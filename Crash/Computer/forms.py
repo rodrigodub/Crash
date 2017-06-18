@@ -7,3 +7,8 @@ class TransistorForm(forms.ModelForm):
         model = CCTransistor
         fields = ('electrode_in', 'electrode_out', 'gate',)
 
+
+class TransistorFormUpdate(forms.ModelForm):
+    class Meta:
+        model = CCTransistor
+        fields = ('electrode_in', 'gate',)
