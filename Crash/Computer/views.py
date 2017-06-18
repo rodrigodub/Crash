@@ -38,3 +38,16 @@ class transistor_update(UpdateView):
     def get_success_url(self):
         return reverse('transistor_list')
 
+    def get_object(self, queryset=None):
+        # tran = CCTransistor.objects.get(id=self.kwargs['pk'])
+        tran = self.model.objects.get(pk=self.kwargs['pk'])
+        # tran.update()
+        return tran
+
+    def form_valid(self, form):
+        #form.instance.update()
+        form.get_object().update()
+        return super(transistor_update, self).form_valid(form)
+
+
+
