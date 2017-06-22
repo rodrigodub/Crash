@@ -67,7 +67,7 @@ def transistor_update(request, id):
     # GET
     else:
         return render(request, 'Computer/transistor_update.html'
-                      , {'transistor': theTransistor, 'transistor_update': TransistorFormUpdate()})
+                      , {'transistor_update': TransistorFormUpdate(instance=theTransistor)})
 
 
 
