@@ -52,11 +52,11 @@ def transistor_list(request):
 
 def transistor_update(request, id):
     transistors = CCTransistor.objects.order_by('-id')
-    # theTransistor = get_object_or_404(CCTransistor, pk=id)
-    theTransistor = CCTransistor.objects.get(pk=id)
+    theTransistor = get_object_or_404(CCTransistor, pk=id)
+    # theTransistor = CCTransistor.objects.get(pk=id)
     # POST
     if request.method == 'POST':
-        transForm = TransistorFormUpdate(request.POST)
+        transForm = TransistorFormUpdate(request.POST or None, instance=theTransistor)
         if transForm.is_valid():
             transForm.save(commit=True)
             # theTransistor = CCTransistor.objects.get(pk=id)
