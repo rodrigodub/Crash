@@ -49,4 +49,8 @@ def transistor_update(request, id):
                       , {'transistor_update': TransistorFormUpdate(instance=theTransistor)})
 
 
+def circuit_list(request):
+    pass
+
+
 
