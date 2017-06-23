@@ -5,10 +5,10 @@ from .models import CCTransistor
 class TransistorForm(forms.ModelForm):
     class Meta:
         model = CCTransistor
-        fields = ('electrode_in', 'electrode_out', 'gate',)
+        fields = ('collector', 'emitter', 'base',)
 
 
 class TransistorFormUpdate(forms.ModelForm):
     class Meta:
         model = CCTransistor
-        fields = ('electrode_in', 'gate',)
+        fields = ('collector', 'base',)

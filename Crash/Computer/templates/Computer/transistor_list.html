@@ -74,9 +74,9 @@
         <tr>
           
           <td><a href="{% url 'transistor_update' transistor.id %}">{{ transistor.id }}</a></td>
-          <td>{{ transistor.electrode_in }}</td>
-          <td>{{ transistor.electrode_out }}</td>
-          <td>{{ transistor.gate }}</td>
+          <td>{{ transistor.collector }}</td>
+          <td>{{ transistor.emitter }}</td>
+          <td>{{ transistor.base }}</td>
           
         </tr>
         {% endfor %}
