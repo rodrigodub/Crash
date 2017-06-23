@@ -25,31 +25,17 @@
       </div>
       
       <div class="row">
-      <!-- Form with Magnitude and Angle -->
-      <div class="col-md-6">
-      <p>Using Magnitude (m) and angle (theta)</p>
+      <!-- Vector Form -->
+      <div class="col-md-12">
+      <p>Create using [1] Magnitude (m) and angle (theta) or [2] horizontal and vertical (x and y) components.</p>
       <form  method="POST" class="form-inline">
         <table class="table-condensed">
           {% csrf_token %}
-          {{ vector_formMT }}
+          {{ vector_form }}
           <tr>
             <td><button type="submit" class="btn btn-default">Create</button></td>
           </tr>
         </table>    
-      </form>
-      </div>
-
-      <!-- Form with X and Y components -->
-      <div class="col-md-6">
-      <p>Using horizontal and vertical (x and y) components</p>
-      <form  method="POST" class="form-inline">
-        <table class="table-condensed">
-          {% csrf_token %}
-          {{ vector_formXY }}
-          <tr>
-            <td><button type="submit" class="btn btn-default">Create</button></td>
-          </tr>
-        </table>      
       </form>
       </div>
       </div>

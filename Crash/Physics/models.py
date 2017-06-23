@@ -15,13 +15,13 @@ class HTVector(models.Model):
     # vector name
     name = models.CharField(max_length=30, null=True)
     # magnitude (module), m
-    m = models.FloatField(default=None, null=True)
+    m = models.FloatField(default=None, blank=True)
     # anticlockwise angle with east, trigonometric angle theta
-    theta = models.FloatField(default=None, null=True)
+    theta = models.FloatField(default=None, blank=True)
     # horizontal component, x
-    x = models.FloatField(default=None, null=True)
+    x = models.FloatField(default=None, blank=True)
     # vertical component, y
-    y = models.FloatField(default=None, null=True)
+    y = models.FloatField(default=None, blank=True)
 
     def calculateFromSizeAngle(self):
         # Calculates X and Y components when given magnitude and angle.
@@ -64,8 +64,6 @@ class HTVector(models.Model):
         plt.title(r'Vector {}: m={} | $\theta$={} | x={} | y={}'.format(self.name, self.m, self.theta, self.x, self.y))
 
         # output picture
-        # plt.show()
-        # response = HttpResponse(content_type="image/png")
         plt.savefig('Physics/static/Physics/vector.png')
         plt.clf()
         # return response
