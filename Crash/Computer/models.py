@@ -46,9 +46,19 @@ class CCTransistor(models.Model):
 class CCCircuit(models.Model):
     """Class to define Circuits. Circuits are made of a number of components."""
     name = models.CharField(max_length=30)
+    instate = models.IntegerField(default=0)
+    outstate = models.IntegerField(default=0)
+
+    def navigate(self):
+        connections = CCConnection.objects.filter(circuit=self).order_by('order')
+        return [print('{} | From: Transistor {} {}: {} | To  : Transistor {} {}: {}'
+               .format(con.circuit.name
+                       , con.transistor1.id, con.transistor1field, getattr(con.transistor1, con.transistor1field)
+                       , con.transistor2.id, con.transistor2field, getattr(con.transistor2, con.transistor2field)))
+         for con in connections]
 
 
-class CCConection(models.Model):
+class CCConnection(models.Model):
     circuit = models.ForeignKey(CCCircuit, db_index=True)
     order = models.IntegerField(default=0)
     transistor1 = models.ForeignKey(CCTransistor, db_index=True, related_name='connection_from')
