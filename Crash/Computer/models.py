@@ -51,11 +51,15 @@ class CCCircuit(models.Model):
 
     def navigate(self):
         connections = CCConnection.objects.filter(circuit=self).order_by('order')
-        return [print('{} | From: Transistor {} {}: {} | To  : Transistor {} {}: {}'
-               .format(con.circuit.name
-                       , con.transistor1.id, con.transistor1field, getattr(con.transistor1, con.transistor1field)
-                       , con.transistor2.id, con.transistor2field, getattr(con.transistor2, con.transistor2field)))
-         for con in connections]
+        s1 = '{}\n              Transistor     C  B  E     |     C  B  E     Transistor\n' \
+             '              ----------     -------     |     -------     ----------'\
+            .format(connections[0].circuit.name)
+        s2 = ['                  {}          {}  {}  {}     |     {}  {}  {}          {}    '
+                  .format(con.transistor1.id, con.transistor1.collector, con.transistor1.base, con.transistor1.emitter
+                          , con.transistor2.collector, con.transistor2.base, con.transistor2.emitter, con.transistor2.id)
+              for con in connections]
+        s2.insert(0, s1)
+        return [print(con) for con in s2]
 
 
 class CCConnection(models.Model):
