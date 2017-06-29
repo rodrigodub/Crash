@@ -19,7 +19,7 @@ class CCBattery(models.Model):
             self.negative = 0
 
     def report(self):
-        return '-------------\nBattery {}\nState: {}\nPositive: {}\nNegative: {}\n-------------'\
+        return '------\nBattery {} | State: {} | Positive: {} | Negative: {}\n------'\
             .format(self.name, self.state, self.positive, self.negative)
 
 
@@ -39,8 +39,12 @@ class CCTransistor(models.Model):
             self.emitter = 0
 
     def report(self):
-        return '-------------\nTransistor\nCollector: {}\nBase: {}\nEmitter: {}\n-------------'\
-            .format(self.collector, self.base, self.emitter)
+        """Display the state of all three electrodes of Transistors"""
+        s1 = '              Transistor     C  B  E\n                  {}          {}  {}  {}'\
+            .format(self.id, self.collector, self.base, self.emitter)
+        return s1
+        # return '-------------\nTransistor\nCollector: {}\nBase: {}\nEmitter: {}\n-------------'\
+        #     .format(self.collector, self.base, self.emitter)
 
 
 class CCCircuit(models.Model):
@@ -49,23 +53,75 @@ class CCCircuit(models.Model):
     instate = models.IntegerField(default=0)
     outstate = models.IntegerField(default=0)
 
-    def navigate(self):
+    def getState(self):
+        """Display the state of all three electrodes of Transistors"""
         connections = CCConnection.objects.filter(circuit=self).order_by('order')
-        s1 = '{}\n              Transistor     C  B  E     |     C  B  E     Transistor\n' \
-             '              ----------     -------     |     -------     ----------'\
-            .format(connections[0].circuit.name)
-        s2 = ['                  {}          {}  {}  {}     |     {}  {}  {}          {}    '
-                  .format(con.transistor1.id, con.transistor1.collector, con.transistor1.base, con.transistor1.emitter
-                          , con.transistor2.collector, con.transistor2.base, con.transistor2.emitter, con.transistor2.id)
-              for con in connections]
-        s2.insert(0, s1)
-        return [print(con) for con in s2]
+        s = ['{}\n                  Battery   Transistor   |   Transistor   Battery\n'
+             '                    (+)      C  B  E     |    C  B  E       (-)\n'
+             '                  -------   ---------    |   ---------    -------'.format(connections[0].circuit.name)]
+        for con in connections:
+            if (con.transistor2 == None) and (con.batteryfield == 'positive'):
+                s.append('                     {}                   |    {}  {}  {}'.format(con.battery.positive,
+                                                                                            con.transistor1.collector,
+                                                                                            con.transistor1.base,
+                                                                                            con.transistor1.emitter))
+            elif (con.transistor2 == None) and (con.batteryfield == 'negative'):
+                s.append('                             {}  {}  {}     |                   {}'.format(
+                    con.transistor1.collector, con.transistor1.base, con.transistor1.emitter, con.battery.negative))
+            else:
+                s.append('                             {}  {}  {}     |    {}  {}  {}'.format(con.transistor1.collector,
+                                                                                              con.transistor1.base,
+                                                                                              con.transistor1.emitter,
+                                                                                              con.transistor2.collector,
+                                                                                              con.transistor2.base,
+                                                                                              con.transistor2.emitter))
+        return [line for line in s]
+
+    def getConnections(self):
+        """Display the connected Transistor electrodes"""
+        connections = CCConnection.objects.filter(circuit=self).order_by('order')
+        s = ['{}\n                  Battery   Transistor   |   Transistor   Battery\n'
+             '                    (+)      C  B  E     |    C  B  E       (-)\n'
+             '                  -------   ---------    |   ---------    -------'.format(connections[0].circuit.name)]
+        for con in connections:
+            if (con.transistor2 == None) and (con.batteryfield == 'positive'):
+                if con.transistor1field == 'collector':
+                    s.append('                     {}                   |    {}'.format(con.battery.positive,
+                                                                                                con.transistor1.collector))
+                elif con.transistor1field == 'base':
+                    s.append('                     {}                   |       {}'.format(con.battery.positive,
+                                                                                        con.transistor1.base))
+                else:
+                    s.append('                     {}                   |          {}'.format(con.battery.positive,
+                                                                                           con.transistor1.emitter))
+            elif (con.transistor2 == None) and (con.batteryfield == 'negative'):
+                if con.transistor1field == 'collector':
+                    s.append('                             {}           |                   {}'.format(con.transistor1.collector,
+                                                                                                       con.battery.negative))
+                elif con.transistor1field == 'base':
+                    s.append('                                {}        |                   {}'.format(con.transistor1.base,
+                                                                                                       con.battery.negative))
+                else:
+                    s.append('                                   {}     |                   {}'.format(con.transistor1.emitter,
+                                                                                                       con.battery.negative))
+            else:
+                s.append('                             {}  {}  {}     |    {}  {}  {}'.format(con.transistor1.collector,
+                                                                                              con.transistor1.base,
+                                                                                              con.transistor1.emitter,
+                                                                                              con.transistor2.collector,
+                                                                                              con.transistor2.base,
+                                                                                              con.transistor2.emitter))
+        return [line for line in s]
 
 
 class CCConnection(models.Model):
+    """Establishes all the connections between Transistor electrodes"""
     circuit = models.ForeignKey(CCCircuit, db_index=True)
     order = models.IntegerField(default=0)
-    transistor1 = models.ForeignKey(CCTransistor, db_index=True, related_name='connection_from')
+    transistor1 = models.ForeignKey(CCTransistor, related_name='connection_from')
     transistor1field = models.CharField(max_length=10)
-    transistor2 = models.ForeignKey(CCTransistor, db_index=True, related_name='connection_to')
-    transistor2field = models.CharField(max_length=10)
+    transistor2 = models.ForeignKey(CCTransistor, related_name='connection_to', null=True, blank=True)
+    transistor2field = models.CharField(max_length=10, null=True, blank=True)
+    battery = models.ForeignKey(CCBattery, null=True, blank=True)
+    batteryfield = models.CharField(max_length=8, null=True, blank=True)
+
