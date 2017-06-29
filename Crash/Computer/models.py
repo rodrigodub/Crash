@@ -113,6 +113,13 @@ class CCCircuit(models.Model):
                                                                                               con.transistor2.emitter))
         return [line for line in s]
 
+    def update(self):
+        """Update Circuit state"""
+        connections = CCConnection.objects.filter(circuit=self).order_by('order')
+        for con in connections:
+            if con.transistor2 == None:
+                pass
+
 
 class CCConnection(models.Model):
     """Establishes all the connections between Transistor electrodes"""
