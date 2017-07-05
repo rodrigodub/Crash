@@ -17,6 +17,7 @@ class CCBattery(models.Model):
             self.state = 0
             self.positive = 0
             self.negative = 0
+        self.save()
 
     def report(self):
         return '------\nBattery {} | State: {} | Positive: {} | Negative: {}\n------'\
@@ -127,7 +128,13 @@ class CCCircuit(models.Model):
         connections = CCConnection.objects.filter(circuit=self).order_by('order')
         for con in connections:
             if con.transistor2 == None:
-                pass
+                if con.transistor1field in ['collector', 'base']:
+                    if getattr(con.transistor1, con.transistor1field) != getattr(con.battery, con.batteryfield):
+                        con.transistor1.switch(con.transistor1field[0])
+            else:
+                if con.transistor2field in ['collector', 'base']:
+                    if getattr(con.transistor2, con.transistor2field) != getattr(con.transistor1, con.transistor1field):
+                        con.transistor2.switch(con.transistor2field[0])
 
 
 class CCConnection(models.Model):
