@@ -21,3 +21,6 @@ python3 manage.py shell
 
 # EXPLORING THE API
 from Physics.models import HTVector
+
+# RUNNING IN JUPYTER NOTEBOOK
+python3 manage.py shell_plus --notebook

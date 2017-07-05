@@ -37,6 +37,15 @@ class CCTransistor(models.Model):
             self.emitter = 1
         else:
             self.emitter = 0
+        self.save()
+
+    def switch(self, electrode):
+        # switch('c') or switch('b')  to switch the collector or the base
+        if electrode.upper() == 'C':
+            self.collector = (self.collector - 1) ** 2
+        elif electrode.upper() == 'B':
+            self.base = (self.base - 1) ** 2
+        self.update()
 
     def report(self):
         """Display the state of all three electrodes of Transistors"""
