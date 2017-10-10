@@ -4,11 +4,11 @@
 #               Computer Science
 #         CrashCourse Computer Science
 #
-# v1.112
+# v1.114
 # Issue #35
 #
 # Rodrigo Nobrega
-# 20170420-20170926
+# 20170420-20171010
 #################################################
 __author__ = 'Rodrigo Nobrega'
 
@@ -24,16 +24,23 @@ class CCTransistor(object):
         self.name = name
         # collector = electrode_in
         self.collector = 0
+        self.collectorcharge = '|'
         # emitter = electrode_out
         self.emitter = 0
+        self.emittercharge = '|'
         # base = gate
         self.base = 0
+        self.basecharge = '|'
         print(self)
     
     def __str__(self):
         st = int((17 - len(self.name)) / 2) * ' ' + self.name + int((17 - len(self.name)) / 2) * ' '
-        return '=================\n{}\n=================\n   |    |    |  \n   C    B    E  \n   |    |    |  \n'.format(st)
-
+        return '=================\n{}\n================='\
+                '\n   C    B    E  \n   {}    {}    {}  \n   {}    {}    {}  \n'\
+                .format(st
+                , self.collector, self.base, self.emitter
+                , self.collectorcharge, self.basecharge, self.emittercharge)
+        
 
 # test loop
 def test():
